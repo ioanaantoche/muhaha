@@ -1,0 +1,56 @@
+package ro.pub.cti.remotenao;
+
+import android.app.Activity;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.remotenao.R;
+
+public class ButtonListeners implements View.OnClickListener {
+	Activity activity;
+	public ButtonListeners(Activity activity) {
+		this.activity = activity;
+	}
+
+	@Override
+	public void onClick(View v) {
+		if (v.getId() == R.id.submit_button) {
+			startSSHConnection();
+		}
+		
+	}
+	
+	private boolean checkmptyFieldErrorMessage(String field, String errorMessage) {
+		if (field == null || field.isEmpty()) {
+			Toast.makeText(activity.getApplicationContext(),
+					errorMessage,Toast.LENGTH_LONG).show();
+			return false;
+		}
+		return true;
+	}
+	
+	private void startSSHConnection() {
+		String user = ((TextView) activity.findViewById(R.id.user_input)).toString().trim();
+		if (checkmptyFieldErrorMessage(user, "User cannot be an empty string")) {
+			return;
+		}
+		
+		String host = ((TextView) activity.findViewById(R.id.host_input)).toString().trim();
+		if (checkmptyFieldErrorMessage(host, "Host cannot be an empty string")) {
+			return;
+		}
+		
+		String password = ((TextView) activity.findViewById(R.id.password_input)).toString().trim();
+		
+		SshConnection sscConnection = new SshConnection(user, host, password);
+		try {
+			
+		} catch (Exception e) {
+			Toast.makeText(activity.getApplicationContext(),
+					e.toString(),Toast.LENGTH_LONG).show();
+		}
+		
+	}
+
+}

@@ -1,0 +1,5 @@
+INDEX VERSION 1.127+/home/ioana/facultate/licenta/sshConnection/.metadata/.plugins/org.eclipse.jdt.core
+3355452292.index
+2317236163.index
+3536392294.index
+1375051893.index

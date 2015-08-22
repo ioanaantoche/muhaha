@@ -1,0 +1,30 @@
+package ro.pub.cti.remotenao;
+
+import android.app.Activity;
+import android.view.View;
+import android.widget.TextView;
+
+import com.example.remotenao.R;
+
+public class ButtonListeners implements View.OnClickListener {
+	Activity activity;
+	public ButtonListeners(Activity activity) {
+		this.activity = activity;
+	}
+
+	@Override
+	public void onClick(View v) {
+		if (v.getId() == R.id.submit_button) {
+			startSSHConnection();
+		}
+		
+	}
+	
+	private void startSSHConnection() {
+		String user = ((TextView) activity.findViewById(R.id.user_input)).toString().trim();
+		String host = ((TextView) activity.findViewById(R.id.host_input)).toString().trim();
+		String password = ((TextView) activity.findViewById(R.id.password_input)).toString().trim();
+		
+	}
+
+}

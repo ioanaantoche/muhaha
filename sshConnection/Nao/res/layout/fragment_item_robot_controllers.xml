@@ -1,0 +1,13 @@
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_robot_controler"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="horizontal"
+    android:textIsSelectable="true"
+    tools:context="ro.pub.cti.nao.ItemDetailFragment" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    
+    
+
+</LinearLayout>

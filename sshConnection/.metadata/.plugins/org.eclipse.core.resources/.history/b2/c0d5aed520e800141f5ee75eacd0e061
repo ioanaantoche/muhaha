@@ -1,0 +1,25 @@
+package ro.pub.cti.remotenao;
+
+import com.example.remotenao.R;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+
+public class ButtonListeners implements View.OnClickListener {
+
+	@Override
+	public void onClick(View v) {
+		if (v.getId() == R.id.submit_button) {
+			startSSHConnection();
+		}
+		
+	}
+	
+	private void startSSHCnnection() {
+		
+	}
+
+}

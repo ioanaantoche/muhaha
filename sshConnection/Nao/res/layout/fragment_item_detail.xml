@@ -1,0 +1,101 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_detail"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="16dp"
+    android:textIsSelectable="true"
+    android:orientation="vertical"
+    tools:context="ro.pub.cti.nao.ItemDetailFragment" >
+    
+   <!-- Connection status --> 
+   <GridLayout
+        android:id="@+id/linerLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="1" >
+
+        <TextView
+            android:id="@+id/dummy_text2"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@+string/english_connection_status"/>
+
+        <ToggleButton
+	       android:id="@+id/connectionStatus"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:text="@+string/off_status" 
+	       android:textColor="@android:color/holo_red_light"
+	       android:clickable="false"/>
+ 
+    </GridLayout>
+
+   <!-- Battery status -->
+   <GridLayout
+        android:id="@+id/linerLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="1" >
+
+        <TextView
+            android:id="@+id/dummy_text1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@+string/english_batery_status"/>
+
+
+        <ProgressBar
+            android:id="@+id/bateryStatusBar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:layout_gravity="center_vertical"
+            android:layout_column="1"
+            android:layout_row="0"
+            android:max="100"
+            android:minWidth="200dp" />
+    </GridLayout>
+
+   <!-- CPU status --> 
+   <GridLayout
+        android:id="@+id/linerLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="1" >
+
+        <TextView
+            android:id="@+id/dummy_text3"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@+string/english_cpu_status"/>
+
+        <ProgressBar
+            android:id="@+id/cpuStatusBar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:layout_gravity="center_vertical"
+            android:layout_column="1"
+            android:layout_row="0"
+            android:max="100"
+            android:minWidth="200dp" />
+	
+	</GridLayout>
+
+</LinearLayout>
+

@@ -1,0 +1,108 @@
+package ro.pub.cti.remotenao;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class ButtonListeners implements View.OnClickListener {
+	Activity activity;
+	static public CommunicationInfo communicationInfo;
+	
+	public static String threadFeedback ="..."; 
+	public ButtonListeners(Activity activity) {
+		this.activity = activity;
+	}
+
+	@Override
+	public void onClick(View v) {
+		if (v.getId() == R.id.verify_request_button) {
+			getConnectionInfo();
+		}
+	}
+	
+	private boolean checkmptyFieldErrorMessage(String field, String errorMessage) {
+		if (field == null || field.isEmpty()) {
+			Toast.makeText(activity.getApplicationContext(),
+					errorMessage,Toast.LENGTH_LONG).show();
+			return false;
+		}
+		System.out.println(field);
+		return true;
+	}
+	
+	private void getConnectionInfo() {
+		String protocol = ((TextView) activity.findViewById(R.id.protocol_input))
+				.getText().toString().trim();
+		if (!checkmptyFieldErrorMessage(protocol, "Protocol cannot be an empty string")) {
+			return;
+		}
+		
+		String ip = ((TextView) activity.findViewById(R.id.ip_input))
+				.getText().toString().trim();
+		if (!checkmptyFieldErrorMessage(ip, "Ip cannot be an empty string")) {
+			return;
+		}
+		
+		String port = ((TextView) activity.findViewById(R.id.port_input))
+				.getText().toString().trim();
+		if (!checkmptyFieldErrorMessage(port, "Ip cannot be an empty string")) {
+			return;
+		}
+		communicationInfo = new CommunicationInfo(protocol, ip, port);
+		//Thread t = new CommunicationThread(communicationInfo, "/hello");
+		
+		Intent intent = new Intent(this, MainController.class);
+		
+		Thread t = new CommunicationThread(communicationInfo, "/moveBackward?nrSteps=1");
+		t.start();
+		try {
+			t.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		
+		t = new CommunicationThread(communicationInfo, "/moveForward?nrSteps=2");
+		t.start();
+		try {
+			t.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		t = new CommunicationThread(communicationInfo, "/moveRight?nrSteps=3");
+		t.start();
+		try {
+			t.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		
+		t = new CommunicationThread(communicationInfo, "/moveLeft?nrSteps=3");
+		t.start();
+		try {
+			t.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		t = new CommunicationThread(communicationInfo, "/turnLeft");
+		t.start();
+		try {
+			t.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		t = new CommunicationThread(communicationInfo, "/turnRight");
+		t.start();
+		try {
+			t.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+	}
+}

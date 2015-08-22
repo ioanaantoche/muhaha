@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RemoteNao</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main_controller">MainController</string>
+    
+    <string name="basic_movements">Basic Movements</string>
+    <string name="config_movements">Configurable Movements</string>
+    <string name="advanced_movements">Advanced Movements</string>
+    
+    <string-array name="main_menu_options">
+        <item>Basic Movements</item>
+        <item>Configurable Movements</item>
+        <item>Advanced Movements</item>
+        <item>Send Commands</item>
+        <item>Present Personalities</item>
+    </string-array>
+    
+    <string-array name="robot_body_components">
+        <item>Left Leg</item>
+        <item>Right Leg</item>
+        <item>Left Arm</item>
+        <item>Right Arm</item>
+    </string-array>
+
+</resources>

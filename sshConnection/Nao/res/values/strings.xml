@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Nao</string>
+    <string name="title_item_detail">Item Detail</string>
+    <string name="english_batery_status">Batery Status</string>
+    <string name="english_connection_status">Connection Status</string>
+    <string name="english_cpu_status">CPU Tempertaure</string>
+    <string name="on_status">ON</string>
+    <string name="off_status">OFF</string>
+
+</resources>
